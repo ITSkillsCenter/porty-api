@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::match(['get','post', 'PUT'],'/contactform', [ContactController::class, 'contactform']);
+Route::match(['get','post', 'PUT'],'/Subscriptionform', [ContactController::class, 'Subscriptionform']);
+Route::match(['GET','post', 'PUT'],'/getter', [ContactController::class, 'getter']);
