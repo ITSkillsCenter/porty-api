@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::match(['post', 'get'], '/catalogue', [CatalogueController::class, 'catlogueapi']);
 
 Route::match(['post', 'get'], '/testimonial', [TestimonialController::class, 'testimonialapi']);
+
+
+Route::match(['post','get', ],'/services', [ServiceController::class, 'services']);
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
