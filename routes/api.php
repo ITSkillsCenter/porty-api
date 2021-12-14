@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::match(['post', 'get'], '/catalogue', [CatalogueController::class, 'catlogueapi']);
+
+Route::match(['post', 'get'], '/testimonial', [TestimonialController::class, 'testimonialapi']);
+
+
 Route::match(['post','get', ],'/services', [ServiceController::class, 'services']);
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
