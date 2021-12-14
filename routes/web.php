@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::match(['post','get', ],'/welcome', [ServiceController::class, 'welcome']);
+Route::match(['post','get', ],'/services', [ServiceController::class, 'services']);
+
+
 
 Route::get('/', function () {
     return view('welcome');
